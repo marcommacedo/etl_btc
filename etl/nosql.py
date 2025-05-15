@@ -26,7 +26,7 @@ def transform_data(data):
     
     return transformed_data
 
-def load_data_db(transform_data):
+def load_data_db(transformed_data):
     db = TinyDB("data/db.json")
     db.insert(transformed_data)
 
@@ -39,7 +39,7 @@ if __name__ == "__main__":
         transformed_data = transform_data(data)
         
         # Load
-        load_data_db(transform_data)
+        load_data_db(transformed_data)
         
         print("Dados carregados!")
         sleep(15)
