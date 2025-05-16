@@ -1,6 +1,6 @@
 # ETL - Bitcoin
 
-Este projeto realiza um processo ETL (Extract, Transform, Load) para coletar o preço do Bitcoin em tempo real usando a API pública da Coinbase, transformando e armazenando os dados em bancos de dados NoSQL (TinyDB) e SQL (via SQLAlchemy).
+Este projeto realiza um processo ETL (Extract, Transform, Load) para coletar o preço do Bitcoin em tempo real usando a API pública da Coinbase, transformando e armazenando os dados em bancos de dados NoSQL (TinyDB) e SQL (via SQLAlchemy). Também inclui um dashboard interativo feito com Streamlit para visualização dos dados coletados.
 
 ## Pré-requisitos
 
@@ -17,6 +17,7 @@ Este projeto realiza um processo ETL (Extract, Transform, Load) para coletar o p
 - **Requests**: Biblioteca para requisições HTTP
 - **Coinbase API**: Fonte dos dados do preço do Bitcoin
 - **python-dotenv**: Gerenciamento de variáveis de ambiente
+- **Streamlit**: Dashboard interativo para visualização dos dados
 
 ## Estrutura do Projeto
 
@@ -27,6 +28,8 @@ Este projeto realiza um processo ETL (Extract, Transform, Load) para coletar o p
 ├── etl/
 │   ├── nosql.py
 │   └── sql.py
+├── interface/
+│   └── app.py
 ├── requirements.txt
 └── README.md
 ```
@@ -36,6 +39,7 @@ Este projeto realiza um processo ETL (Extract, Transform, Load) para coletar o p
 - **Extract:** Coleta o preço atual do Bitcoin via API da Coinbase.
 - **Transform:** Formata os dados, adicionando timestamp e organizando os campos.
 - **Load:** Insere os dados transformados em um banco TinyDB (`data/db.json`) ou em um banco SQL relacional.
+- **Dashboard:** Visualize os dados coletados em tempo real através de um dashboard interativo com Streamlit.
 
 ## Instruções de Instalação
 
@@ -79,6 +83,12 @@ Este projeto realiza um processo ETL (Extract, Transform, Load) para coletar o p
   python etl/sql.py
   ```
 
+- Para rodar o dashboard com Streamlit:
+
+  ```sh
+  streamlit run interface/app.py
+  ```
+
 Os dados serão salvos e atualizados a cada 15 segundos.
 
 ## Dependências
@@ -87,6 +97,7 @@ Os dados serão salvos e atualizados a cada 15 segundos.
 - tinydb
 - sqlalchemy
 - python-dotenv
+- streamlit
 
 Veja todas as dependências em [`requirements.txt`](requirements.txt).
 
@@ -95,6 +106,8 @@ Veja todas as dependências em [`requirements.txt`](requirements.txt).
 - O script pode ser interrompido a qualquer momento com `Ctrl+C`.
 - O banco de dados NoSQL é um arquivo JSON simples, fácil de manipular e visualizar.
 - O banco SQL pode ser configurado conforme sua necessidade via variável de ambiente.
+- O dashboard permite acompanhar em tempo real a evolução dos preços coletados.
+- Agora o projeto suporta tanto armazenamento NoSQL (TinyDB) quanto SQL relacional (SQLAlchemy), além de visualização via Streamlit.
 
 ## Autor
 
